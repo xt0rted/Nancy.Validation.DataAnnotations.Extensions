@@ -35,17 +35,6 @@
         [MaxLength(3)]
         public string PasswordConfirmation { get; set; }
 
-        [Compare("Value1Confirmation")]
-        public string Value1 { get; set; }
-        public string Value1Confirmation { get; set; }
-
-        [DisplayName("Value 2")]
-        [Compare("Value2Confirmation")]
-        public string Value2 { get; set; }
-
-        [DisplayName("Value 2 Confirmation")]
-        public string Value2Confirmation { get; set; }
-
         [Url]
         public string WebPageUrl { get; set; }
         
