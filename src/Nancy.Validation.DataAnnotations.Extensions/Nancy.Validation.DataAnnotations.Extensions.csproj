@@ -42,6 +42,9 @@
     <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\..\SharedAssemblyInfo.cs">
+      <Link>Properties\SharedAssemblyInfo.cs</Link>
+    </Compile>
     <Compile Include="BaseValidatorAdapter.cs" />
     <Compile Include="CompareValidatorAdapter.cs" />
     <Compile Include="CreditCardValidatorAdapter.cs" />
