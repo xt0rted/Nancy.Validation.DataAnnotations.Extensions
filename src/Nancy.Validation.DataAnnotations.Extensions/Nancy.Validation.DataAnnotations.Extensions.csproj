@@ -57,6 +57,7 @@
     <Compile Include="UrlValidatorAdapter.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Properties\Nancy.Validation.DataAnnotations.Extensions.nuspec" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
