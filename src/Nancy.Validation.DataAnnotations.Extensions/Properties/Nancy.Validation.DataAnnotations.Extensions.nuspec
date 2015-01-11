@@ -8,6 +8,7 @@
     <owners>$author$</owners>
     <licenseUrl>https://github.com/xt0rted/Nancy.Validation.DataAnnotations.Extensions/blob/master/LICENSE</licenseUrl>
     <projectUrl>https://github.com/xt0rted/Nancy.Validation.DataAnnotations.Extensions</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/xt0rted/Nancy.Validation.DataAnnotations.Extensions/media/images/nuget.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
     <copyright>Copyright 2014</copyright>
