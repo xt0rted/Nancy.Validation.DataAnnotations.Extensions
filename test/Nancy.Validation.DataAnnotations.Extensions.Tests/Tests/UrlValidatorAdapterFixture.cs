@@ -2,6 +2,8 @@
 {
     using System.Linq;
 
+    using Shouldly;
+
     using Xunit;
 
     public class UrlValidatorAdapterFixture : BaseTestFixture<UrlValidatorAdapter>
@@ -21,7 +23,7 @@
             var result = validator.Validate(model, new NancyContext());
 
             // Then
-            result.IsValid.ShouldBeTrue();
+            result.IsValid.ShouldBe(true);
         }
 
         [Fact]
@@ -31,8 +33,8 @@
             var validator = _factory.Create(typeof(TestModel));
 
             // Then
-            validator.Description.Rules.SelectMany(r => r.Value).ShouldHave(r => r.RuleType == "Url" && r.MemberNames.Contains("WebPageUrl"));
-            validator.Description.Rules.SelectMany(r => r.Value).ShouldHave(r => r.RuleType == "Url" && r.MemberNames.Contains("BlogUrl"));
+            validator.Description.Rules.SelectMany(r => r.Value).ShouldContain(r => r.RuleType == "Url" && r.MemberNames.Contains("WebPageUrl"));
+            validator.Description.Rules.SelectMany(r => r.Value).ShouldContain(r => r.RuleType == "Url" && r.MemberNames.Contains("BlogUrl"));
         }
 
         [Fact]
@@ -46,8 +48,8 @@
             var result = validator.Validate(model, new NancyContext());
 
             // Then
-            result.IsValid.ShouldBeFalse();
-            result.Errors["WebPageUrl"][0].ErrorMessage.ShouldEqual("The WebPageUrl field is not a valid fully-qualified http, https, or ftp URL.");
+            result.IsValid.ShouldBe(false);
+            result.Errors["WebPageUrl"][0].ErrorMessage.ShouldBe("The WebPageUrl field is not a valid fully-qualified http, https, or ftp URL.");
         }
 
         [Fact]
@@ -61,8 +63,8 @@
             var result = validator.Validate(model, new NancyContext());
 
             // Then
-            result.IsValid.ShouldBeFalse();
-            result.Errors["BlogUrl"][0].ErrorMessage.ShouldEqual("The Blog Url field is not a valid fully-qualified http, https, or ftp URL.");
+            result.IsValid.ShouldBe(false);
+            result.Errors["BlogUrl"][0].ErrorMessage.ShouldBe("The Blog Url field is not a valid fully-qualified http, https, or ftp URL.");
         }
     }
 }

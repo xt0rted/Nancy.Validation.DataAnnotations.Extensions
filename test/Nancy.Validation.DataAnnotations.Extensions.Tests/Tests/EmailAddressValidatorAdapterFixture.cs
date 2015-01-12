@@ -2,6 +2,8 @@
 {
     using System.Linq;
 
+    using Shouldly;
+
     using Xunit;
 
     public class EmailAddressValidatorAdapterFixture : BaseTestFixture<EmailAddressValidatorAdapter>
@@ -21,7 +23,7 @@
             var result = validator.Validate(model, new NancyContext());
 
             // Then
-            result.IsValid.ShouldBeTrue();
+            result.IsValid.ShouldBe(true);
         }
 
         [Fact]
@@ -31,8 +33,8 @@
             var validator = _factory.Create(typeof(TestModel));
 
             // Then
-            validator.Description.Rules.SelectMany(r => r.Value).ShouldHave(r => r.RuleType == "Regex" && r.MemberNames.Contains("PersonalEmail"));
-            validator.Description.Rules.SelectMany(r => r.Value).ShouldHave(r => r.RuleType == "Regex" && r.MemberNames.Contains("WorkEmail"));
+            validator.Description.Rules.SelectMany(r => r.Value).ShouldContain(r => r.RuleType == "Regex" && r.MemberNames.Contains("PersonalEmail"));
+            validator.Description.Rules.SelectMany(r => r.Value).ShouldContain(r => r.RuleType == "Regex" && r.MemberNames.Contains("WorkEmail"));
         }
 
         [Fact]
@@ -46,8 +48,8 @@
             var result = validator.Validate(model, new NancyContext());
 
             // Then
-            result.IsValid.ShouldBeFalse();
-            result.Errors["PersonalEmail"][0].ErrorMessage.ShouldEqual("The PersonalEmail field is not a valid e-mail address.");
+            result.IsValid.ShouldBe(false);
+            result.Errors["PersonalEmail"][0].ErrorMessage.ShouldBe("The PersonalEmail field is not a valid e-mail address.");
         }
 
         [Fact]
@@ -61,8 +63,8 @@
             var result = validator.Validate(model, new NancyContext());
 
             // Then
-            result.IsValid.ShouldBeFalse();
-            result.Errors["WorkEmail"][0].ErrorMessage.ShouldEqual("The Work Email Address field is not a valid e-mail address.");
+            result.IsValid.ShouldBe(false);
+            result.Errors["WorkEmail"][0].ErrorMessage.ShouldBe("The Work Email Address field is not a valid e-mail address.");
         }
     }
 }

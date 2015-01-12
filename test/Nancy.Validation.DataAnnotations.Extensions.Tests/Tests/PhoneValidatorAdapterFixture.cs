@@ -2,6 +2,8 @@
 {
     using System.Linq;
 
+    using Shouldly;
+
     using Xunit;
 
     public class PhoneValidatorAdapterFixture : BaseTestFixture<PhoneValidatorAdapter>
@@ -21,7 +23,7 @@
             var result = validator.Validate(model, new NancyContext());
 
             // Then
-            result.IsValid.ShouldBeTrue();
+            result.IsValid.ShouldBe(true);
         }
 
         [Fact]
@@ -31,8 +33,8 @@
             var validator = _factory.Create(typeof(TestModel));
 
             // Then
-            validator.Description.Rules.SelectMany(r => r.Value).ShouldHave(r => r.RuleType == "Phone" && r.MemberNames.Contains("HomePhoneNumber"));
-            validator.Description.Rules.SelectMany(r => r.Value).ShouldHave(r => r.RuleType == "Phone" && r.MemberNames.Contains("WorkPhoneNumber"));
+            validator.Description.Rules.SelectMany(r => r.Value).ShouldContain(r => r.RuleType == "Phone" && r.MemberNames.Contains("HomePhoneNumber"));
+            validator.Description.Rules.SelectMany(r => r.Value).ShouldContain(r => r.RuleType == "Phone" && r.MemberNames.Contains("WorkPhoneNumber"));
         }
 
         [Fact]
@@ -46,8 +48,8 @@
             var result = validator.Validate(model, new NancyContext());
 
             // Then
-            result.IsValid.ShouldBeFalse();
-            result.Errors["HomePhoneNumber"][0].ErrorMessage.ShouldEqual("The HomePhoneNumber field is not a valid phone number.");
+            result.IsValid.ShouldBe(false);
+            result.Errors["HomePhoneNumber"][0].ErrorMessage.ShouldBe("The HomePhoneNumber field is not a valid phone number.");
         }
 
         [Fact]
@@ -61,8 +63,8 @@
             var result = validator.Validate(model, new NancyContext());
 
             // Then
-            result.IsValid.ShouldBeFalse();
-            result.Errors["WorkPhoneNumber"][0].ErrorMessage.ShouldEqual("The Work Phone Number field is not a valid phone number.");
+            result.IsValid.ShouldBe(false);
+            result.Errors["WorkPhoneNumber"][0].ErrorMessage.ShouldBe("The Work Phone Number field is not a valid phone number.");
         }
     }
 }
