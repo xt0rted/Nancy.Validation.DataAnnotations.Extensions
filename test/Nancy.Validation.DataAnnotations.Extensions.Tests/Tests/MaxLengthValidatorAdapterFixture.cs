@@ -2,6 +2,8 @@ namespace Nancy.Validation.DataAnnotations.Extensions.Tests
 {
     using System.Linq;
 
+    using Shouldly;
+
     using Xunit;
 
     public class MaxLengthValidatorAdapterFixture : BaseTestFixture<MaxLengthValidatorAdapter>
@@ -21,7 +23,7 @@ namespace Nancy.Validation.DataAnnotations.Extensions.Tests
             var result = validator.Validate(model, new NancyContext());
 
             // Then
-            result.IsValid.ShouldBeTrue();
+            result.IsValid.ShouldBe(true);
         }
 
         [Fact]
@@ -31,8 +33,8 @@ namespace Nancy.Validation.DataAnnotations.Extensions.Tests
             var validator = _factory.Create(typeof(TestModel));
 
             // Then
-            validator.Description.Rules.SelectMany(r => r.Value).ShouldHave(r => r.RuleType == "MaxLength" && r.MemberNames.Contains("Password"));
-            validator.Description.Rules.SelectMany(r => r.Value).ShouldHave(r => r.RuleType == "MaxLength" && r.MemberNames.Contains("PasswordConfirmation"));
+            validator.Description.Rules.SelectMany(r => r.Value).ShouldContain(r => r.RuleType == "MaxLength" && r.MemberNames.Contains("Password"));
+            validator.Description.Rules.SelectMany(r => r.Value).ShouldContain(r => r.RuleType == "MaxLength" && r.MemberNames.Contains("PasswordConfirmation"));
         }
 
         [Fact]
@@ -46,8 +48,8 @@ namespace Nancy.Validation.DataAnnotations.Extensions.Tests
             var result = validator.Validate(model, new NancyContext());
 
             // Then
-            result.IsValid.ShouldBeFalse();
-            result.Errors["Password"][0].ErrorMessage.ShouldEqual("The field Password must be a string or array type with a maximum length of '3'.");
+            result.IsValid.ShouldBe(false);
+            result.Errors["Password"][0].ErrorMessage.ShouldBe("The field Password must be a string or array type with a maximum length of '3'.");
         }
 
         [Fact]
@@ -61,8 +63,8 @@ namespace Nancy.Validation.DataAnnotations.Extensions.Tests
             var result = validator.Validate(model, new NancyContext());
 
             // Then
-            result.IsValid.ShouldBeFalse();
-            result.Errors["PasswordConfirmation"][0].ErrorMessage.ShouldEqual("The field Password Confirmation must be a string or array type with a maximum length of '3'.");
+            result.IsValid.ShouldBe(false);
+            result.Errors["PasswordConfirmation"][0].ErrorMessage.ShouldBe("The field Password Confirmation must be a string or array type with a maximum length of '3'.");
         }
     }
 }

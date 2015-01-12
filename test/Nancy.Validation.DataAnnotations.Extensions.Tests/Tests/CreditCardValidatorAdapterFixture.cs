@@ -2,6 +2,8 @@
 {
     using System.Linq;
 
+    using Shouldly;
+
     using Xunit;
 
     public class CreditCardValidatorAdapterFixture : BaseTestFixture<CreditCardValidatorAdapter>
@@ -21,7 +23,7 @@
             var result = validator.Validate(model, new NancyContext());
 
             // Then
-            result.IsValid.ShouldBeTrue();
+            result.IsValid.ShouldBe(true);
         }
 
         [Fact]
@@ -31,8 +33,8 @@
             var validator = _factory.Create(typeof(TestModel));
 
             // Then
-            validator.Description.Rules.SelectMany(r => r.Value).ShouldHave(r => r.RuleType == "CreditCard" && r.MemberNames.Contains("VisaCard"));
-            validator.Description.Rules.SelectMany(r => r.Value).ShouldHave(r => r.RuleType == "CreditCard" && r.MemberNames.Contains("DiscoverCard"));
+            validator.Description.Rules.SelectMany(r => r.Value).ShouldContain(r => r.RuleType == "CreditCard" && r.MemberNames.Contains("VisaCard"));
+            validator.Description.Rules.SelectMany(r => r.Value).ShouldContain(r => r.RuleType == "CreditCard" && r.MemberNames.Contains("DiscoverCard"));
         }
 
         [Fact]
@@ -46,8 +48,8 @@
             var result = validator.Validate(model, new NancyContext());
 
             // Then
-            result.IsValid.ShouldBeFalse();
-            result.Errors["VisaCard"][0].ErrorMessage.ShouldEqual("The VisaCard field is not a valid credit card number.");
+            result.IsValid.ShouldBe(false);
+            result.Errors["VisaCard"][0].ErrorMessage.ShouldBe("The VisaCard field is not a valid credit card number.");
         }
 
         [Fact]
@@ -61,8 +63,8 @@
             var result = validator.Validate(model, new NancyContext());
 
             // Then
-            result.IsValid.ShouldBeFalse();
-            result.Errors["DiscoverCard"][0].ErrorMessage.ShouldEqual("The Discover Card field is not a valid credit card number.");
+            result.IsValid.ShouldBe(false);
+            result.Errors["DiscoverCard"][0].ErrorMessage.ShouldBe("The Discover Card field is not a valid credit card number.");
         }
     }
 }

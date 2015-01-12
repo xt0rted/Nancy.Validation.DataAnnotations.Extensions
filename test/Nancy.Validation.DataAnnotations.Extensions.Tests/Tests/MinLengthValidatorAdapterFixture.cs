@@ -2,6 +2,8 @@
 {
     using System.Linq;
 
+    using Shouldly;
+
     using Xunit;
 
     public class MinLengthValidatorAdapterFixture : BaseTestFixture<MinLengthValidatorAdapter>
@@ -21,7 +23,7 @@
             var result = validator.Validate(model, new NancyContext());
 
             // Then
-            result.IsValid.ShouldBeTrue();
+            result.IsValid.ShouldBe(true);
         }
 
         [Fact]
@@ -31,8 +33,8 @@
             var validator = _factory.Create(typeof(TestModel));
 
             // Then
-            validator.Description.Rules.SelectMany(r => r.Value).ShouldHave(r => r.RuleType == "MinLength" && r.MemberNames.Contains("Password"));
-            validator.Description.Rules.SelectMany(r => r.Value).ShouldHave(r => r.RuleType == "MinLength" && r.MemberNames.Contains("PasswordConfirmation"));
+            validator.Description.Rules.SelectMany(r => r.Value).ShouldContain(r => r.RuleType == "MinLength" && r.MemberNames.Contains("Password"));
+            validator.Description.Rules.SelectMany(r => r.Value).ShouldContain(r => r.RuleType == "MinLength" && r.MemberNames.Contains("PasswordConfirmation"));
         }
 
         [Fact]
@@ -46,8 +48,8 @@
             var result = validator.Validate(model, new NancyContext());
 
             // Then
-            result.IsValid.ShouldBeFalse();
-            result.Errors["Password"][0].ErrorMessage.ShouldEqual("The field Password must be a string or array type with a minimum length of '2'.");
+            result.IsValid.ShouldBe(false);
+            result.Errors["Password"][0].ErrorMessage.ShouldBe("The field Password must be a string or array type with a minimum length of '2'.");
         }
 
         [Fact]
@@ -61,8 +63,8 @@
             var result = validator.Validate(model, new NancyContext());
 
             // Then
-            result.IsValid.ShouldBeFalse();
-            result.Errors["PasswordConfirmation"][0].ErrorMessage.ShouldEqual("The field Password Confirmation must be a string or array type with a minimum length of '2'.");
+            result.IsValid.ShouldBe(false);
+            result.Errors["PasswordConfirmation"][0].ErrorMessage.ShouldBe("The field Password Confirmation must be a string or array type with a minimum length of '2'.");
         }
     }
 }

@@ -4,6 +4,8 @@ namespace Nancy.Validation.DataAnnotations.Extensions.Tests
     using System.ComponentModel.DataAnnotations;
     using System.Linq;
 
+    using Shouldly;
+
     using Xunit;
 
     public class CompareValidatorAdapterFixture : BaseTestFixture<CompareValidatorAdapter>
@@ -24,7 +26,7 @@ namespace Nancy.Validation.DataAnnotations.Extensions.Tests
             var result = validator.Validate(model, new NancyContext());
 
             // Then
-            result.IsValid.ShouldBeTrue();
+            result.IsValid.ShouldBe(true);
         }
 
         [Fact]
@@ -34,9 +36,9 @@ namespace Nancy.Validation.DataAnnotations.Extensions.Tests
             var validator = _factory.Create(typeof(TestModel));
 
             // Then
-            validator.Description.Rules.SelectMany(r => r.Value).ShouldHave(r => r.RuleType == "Comparison" && r.MemberNames.Contains("Value1Confirmation"));
-            validator.Description.Rules.SelectMany(r => r.Value).ShouldHave(r => r.RuleType == "Comparison" && r.MemberNames.Contains("Value2Confirmation"));
-            validator.Description.Rules.SelectMany(r => r.Value).ShouldHave(r => r.RuleType == "Comparison" && r.MemberNames.Contains("Value3Confirmation"));
+            validator.Description.Rules.SelectMany(r => r.Value).ShouldContain(r => r.RuleType == "Comparison" && r.MemberNames.Contains("Value1Confirmation"));
+            validator.Description.Rules.SelectMany(r => r.Value).ShouldContain(r => r.RuleType == "Comparison" && r.MemberNames.Contains("Value2Confirmation"));
+            validator.Description.Rules.SelectMany(r => r.Value).ShouldContain(r => r.RuleType == "Comparison" && r.MemberNames.Contains("Value3Confirmation"));
         }
 
         [Fact]
@@ -54,8 +56,8 @@ namespace Nancy.Validation.DataAnnotations.Extensions.Tests
             var result = validator.Validate(model, new NancyContext());
 
             // Then
-            result.IsValid.ShouldBeFalse();
-            result.Errors["Value1"][0].ErrorMessage.ShouldEqual("'Value1Confirmation' and 'Value1' do not match.");
+            result.IsValid.ShouldBe(false);
+            result.Errors["Value1"][0].ErrorMessage.ShouldBe("'Value1Confirmation' and 'Value1' do not match.");
         }
 
         [Fact]
@@ -73,8 +75,8 @@ namespace Nancy.Validation.DataAnnotations.Extensions.Tests
             var result = validator.Validate(model, new NancyContext());
 
             // Then
-            result.IsValid.ShouldBeFalse();
-            result.Errors["Value3Confirmation"][0].ErrorMessage.ShouldEqual("'Value 3 Confirmation' and 'Value 3' do not match.");
+            result.IsValid.ShouldBe(false);
+            result.Errors["Value3Confirmation"][0].ErrorMessage.ShouldBe("'Value 3 Confirmation' and 'Value 3' do not match.");
         }
 
         private class TestModel
