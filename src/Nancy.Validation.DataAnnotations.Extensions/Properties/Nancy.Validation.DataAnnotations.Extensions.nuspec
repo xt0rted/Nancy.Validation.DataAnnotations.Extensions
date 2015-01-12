@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>$author$</authors>
+    <owners>$author$</owners>
+    <licenseUrl>https://github.com/xt0rted/Nancy.Validation.DataAnnotations.Extensions/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/xt0rted/Nancy.Validation.DataAnnotations.Extensions</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/xt0rted/Nancy.Validation.DataAnnotations.Extensions/media/images/nuget.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>$description$</description>
+    <copyright>Copyright 2014</copyright>
+    <tags>Nancy Validation DataAnnotations</tags>
+  </metadata>
+</package>

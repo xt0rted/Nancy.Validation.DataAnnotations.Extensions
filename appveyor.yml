@@ -15,5 +15,13 @@ assembly_info:
 
 configuration: Release
 
+nuget:
+  account_feed: true
+  project_feed: true
+
+build:
+  publish_nuget: true
+  publish_nuget_symbols: true
+
 before_build:
   - ps: nuget restore
