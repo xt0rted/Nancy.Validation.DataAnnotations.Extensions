@@ -18,6 +18,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		WE-Markdown.css = WE-Markdown.css
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{5AEA823F-AFAA-416B-BCBC-1165FC6FB0B7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleWebsite", "samples\SampleWebsite\SampleWebsite.csproj", "{E7FE3341-C423-40C4-A8A4-D551F1E25BE7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,11 +36,16 @@ Global
 		{60C99AB1-8515-4DFD-8C84-AA10CDF53ECB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{60C99AB1-8515-4DFD-8C84-AA10CDF53ECB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{60C99AB1-8515-4DFD-8C84-AA10CDF53ECB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7FE3341-C423-40C4-A8A4-D551F1E25BE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7FE3341-C423-40C4-A8A4-D551F1E25BE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7FE3341-C423-40C4-A8A4-D551F1E25BE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7FE3341-C423-40C4-A8A4-D551F1E25BE7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{60C99AB1-8515-4DFD-8C84-AA10CDF53ECB} = {35B9A7BA-86D3-45E7-879B-9A01286F8506}
+		{E7FE3341-C423-40C4-A8A4-D551F1E25BE7} = {5AEA823F-AFAA-416B-BCBC-1165FC6FB0B7}
 	EndGlobalSection
 EndGlobal

@@ -1,0 +1,91 @@
+﻿@inherits NancyRazorViewBase<SampleWebsite.Modules.HomeModule.UserAccountModel>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Nancy.Validation.DataAnnotations.Extensions Demo</title>
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css"/>
+    <link rel="stylesheet" href="~/Content/bootstrap-theme.min.css"/>
+    <style>
+        .validation.validation-summary {
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid transparent;
+            border-radius: 4px;
+
+            color: #a94442;
+            background-color: #f2dede;
+            border-color: #ebccd1;
+        }
+        .validation.validation-summary h4 {
+            margin-top: 0;
+            color: inherit;
+        }
+        .validation .validation-summary-errors {
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Nancy.Validation.DataAnnotations.Extensions Demo</h1>
+
+        <form method="POST">
+
+            @Html.ValidationSummary("Validation Results")
+
+            <div class="form-group">
+                <label for="AccountCreditCard">Account Credit Card</label>
+                <input type="text" class="form-control" id="AccountCreditCard" name="AccountCreditCard" value="@Model.AccountCreditCard"/>
+            </div>
+
+            <div class="form-group">
+                <label for="HomePhone">Home Phone</label>
+                <input type="text" class="form-control" id="HomePhone" name="HomePhone" value="@Model.HomePhone"/>
+                <span class="help-block">
+                    Valid format
+                    <code>^(\+\s?)?((?&lt;!\+.*)\(\+?\d+([\s\-\.]?\d+)?\)|\d+)([\s\-\.]?(\(\d+([\s\-\.]?\d+)?\)|\d+))*(\s?(x|ext\.?)\s?\d+)?$</code>
+                </span>
+            </div>
+
+            <div class="form-group">
+                <label for="Website">Website Url</label>
+                <input type="text" class="form-control" id="Website" name="Website" value="@Model.Website"/>
+            </div>
+
+            <div class="form-group">
+                <label for="PrimaryEmail">Primary Email</label>
+                <input type="text" class="form-control" id="PrimaryEmail" name="PrimaryEmail" value="@Model.PrimaryEmail" />
+            </div>
+
+            <div class="form-group">
+                <label for="Resume">Resume</label>
+                <input type="text" class="form-control" id="Resume" name="Resume" value="@Model.Resume"/>
+                <span class="help-block">
+                    Only file names ending in <code>.pdf</code> or <code>.docx</code> are allowed
+                </span>
+            </div>
+
+            <div class="form-group">
+                <label for="Password">Password</label>
+                <input type="text" class="form-control" id="Password" name="Password" value="@Model.Password" />
+                <span class="help-block">Must be between <code>8</code> and <code>13</code> characters long</span>
+            </div>
+
+            <div class="form-group">
+                <label for="ConfirmPassword">Confirm Password</label>
+                <input type="text" class="form-control" id="ConfirmPassword" name="ConfirmPassword" value="@Model.ConfirmPassword" />
+                <span class="help-block">Must be the same as the <code>Password</code> value</span>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Create Account</button>
+            <input type="reset" class="btn btn-default" value="Reset Form"/>
+
+        </form>
+    </div>
+    <script src="~/Scripts/jquery-2.1.3.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>
