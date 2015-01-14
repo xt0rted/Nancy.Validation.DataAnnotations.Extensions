@@ -32,7 +32,6 @@ install:
       
       if ($env:APPVEYOR_REPO_TAG -ne 'true') {
           $env:RELEASE_VERSION += "-build" + $buildNumber.ToString().PadLeft(5, '0')
-          "tag: yes"
       }
       
       "Release version $env:RELEASE_VERSION"
