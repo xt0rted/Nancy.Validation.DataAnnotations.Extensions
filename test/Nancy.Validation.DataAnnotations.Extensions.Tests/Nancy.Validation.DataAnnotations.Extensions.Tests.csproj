@@ -71,7 +71,6 @@
     <Compile Include="Tests\MinLengthValidatorAdapterFixture.cs" />
     <Compile Include="Tests\PhoneValidatorAdapterFixture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TestModel.cs" />
     <Compile Include="Tests\UrlValidatorAdapterFixture.cs" />
   </ItemGroup>
   <ItemGroup>
