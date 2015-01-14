@@ -33,7 +33,7 @@ namespace Nancy.Validation.DataAnnotations.Extensions.Tests
         public void Should_read_compare_annotations()
         {
             // Given, When
-            var validator = _factory.Create(typeof(TestModel));
+            var validator = _factory.Create(typeof (TestModel));
 
             // Then
             validator.Description.Rules.SelectMany(r => r.Value).ShouldContain(r => r.RuleType == "Comparison" && r.MemberNames.Contains("Value1Confirmation"));
@@ -67,6 +67,25 @@ namespace Nancy.Validation.DataAnnotations.Extensions.Tests
             var validator = _factory.Create(typeof (TestModel));
             var model = new TestModel
             {
+                Value2 = "3",
+                Value2Confirmation = "4"
+            };
+
+            // When
+            var result = validator.Validate(model, new NancyContext());
+
+            // Then
+            result.IsValid.ShouldBe(false);
+            result.Errors["Value2Confirmation"][0].ErrorMessage.ShouldBe("'Value 2 Confirmation' and 'Value 2' do not match.");
+        }
+
+        [Fact]
+        public void Should_return_false_and_contain_displayname()
+        {
+            // Given
+            var validator = _factory.Create(typeof (TestModel));
+            var model = new TestModel
+            {
                 Value3 = "3",
                 Value3Confirmation = "4"
             };
@@ -86,8 +105,10 @@ namespace Nancy.Validation.DataAnnotations.Extensions.Tests
             [Compare("Value1")]
             public string Value1Confirmation { get; set; }
 
+            [Display(Name = "Value 2")]
             public string Value2 { get; set; }
 
+            [Display(Name = "Value 2 Confirmation")]
             [Compare("Value2")]
             public string Value2Confirmation { get; set; }
 
