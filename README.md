@@ -1,8 +1,10 @@
 # Nancy.Validation.DataAnnotations.Extensions
 
-[![Build status](https://ci.appveyor.com/api/projects/status/k5r5yhlca6cl79i6?svg=true)](https://ci.appveyor.com/project/xt0rted/nancy-validation-dataannotations-extensions)
+[![Build Status](https://ci.appveyor.com/api/projects/status/k5r5yhlca6cl79i6?svg=true)](https://ci.appveyor.com/project/xt0rted/nancy-validation-dataannotations-extensions)
 [![NuGet Status](http://img.shields.io/nuget/v/Nancy.Validation.DataAnnotations.Extensions.svg?style=flat)](https://www.nuget.org/packages/Nancy.Validation.DataAnnotations.Extensions/)
-[![MyGet Status](https://img.shields.io/myget/13degrees/vpre/Nancy.Validation.DataAnnotations.Extensions.svg?style=flat&label=myget)](http://www.myget.org/f/13degrees)
+[![MyGet Status](https://img.shields.io/myget/13degrees/vpre/Nancy.Validation.DataAnnotations.Extensions.svg?style=flat&label=myget)](http://www.myget.org/f/13degrees/)
+
+***Note:*** *As of Nancy v0.24-Pre1451 the `IDataAnnotationsValidatorAdapter` signature has changed. As a result [v0.1.0](https://www.nuget.org/packages/Nancy.Validation.DataAnnotations.Extensions/0.1.0) will no longer load. If you're using a version of Nancy newer than this you'll need to use a pre-release version from the [MyGet feed](http://www.myget.org/f/13degrees/).*
 
 This project adds support to `Nancy.Validation.DataAnnotations` for the following .NET 4.5 attributes.
 

@@ -42,7 +42,7 @@ build:
   publish_nuget_symbols: true
 
 before_build:
-  - ps: nuget restore
+  - ps: nuget restore -source "https://www.nuget.org/api/v2/;https://www.myget.org/F/nancyfx/"
 
 deploy:
   - provider: NuGet
