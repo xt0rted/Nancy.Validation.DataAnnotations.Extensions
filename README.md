@@ -16,6 +16,13 @@ This project adds support to `Nancy.Validation.DataAnnotations` for the followin
 - [UrlAttribute](http://msdn.microsoft.com/en-us/library/System.ComponentModel.DataAnnotations.UrlAttribute.aspx)
 
 
+## Using
+
+Install via NuGet `Install-Package Nancy.Validation.DataAnnotations.Extensions`
+
+By default Nancy will load and register all `IDataAnnotationsValidatorAdapter` instances. Unless you've changed how these get loaded there's nothing to configure.
+
+
 ## Development
 
 This repository contains `.git*` and `.hg*` files. This allows for the use of either Git or [Hg](http://mercurial.selenic.com/) using Fog Creek's [Kiln Harmony](http://www.fogcreek.com/kiln/).
