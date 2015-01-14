@@ -23,9 +23,9 @@
                                                       compareAttribute.OtherProperty);
         }
 
-        public override IEnumerable<ModelValidationError> Validate(object instance, ValidationAttribute attribute, PropertyDescriptor descriptor)
+        public override IEnumerable<ModelValidationError> Validate(object instance, ValidationAttribute attribute, PropertyDescriptor descriptor, NancyContext context)
         {
-            var context = new ValidationContext(instance, null, null)
+            var validationContext = new ValidationContext(instance, null, null)
             {
                 MemberName = descriptor == null ? null : descriptor.Name
             };
@@ -34,17 +34,17 @@
             {
                 if (!string.IsNullOrEmpty(descriptor.DisplayName))
                 {
-                    context.DisplayName = descriptor.DisplayName;
+                    validationContext.DisplayName = descriptor.DisplayName;
                 }
 
                 instance = descriptor.GetValue(instance);
             }
 
-            var result = attribute.GetValidationResult(instance, context);
+            var result = attribute.GetValidationResult(instance, validationContext);
 
             if (result != null)
             {
-                yield return GetValidationError(result, context, attribute);
+                yield return GetValidationError(result, validationContext, attribute);
             }
         }
 
