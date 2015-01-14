@@ -1,6 +1,7 @@
 # Nancy.Validation.DataAnnotations.Extensions
 
 [![Build status](https://ci.appveyor.com/api/projects/status/k5r5yhlca6cl79i6?svg=true)](https://ci.appveyor.com/project/xt0rted/nancy-validation-dataannotations-extensions)
+[![NuGet Status](http://img.shields.io/nuget/v/Nancy.Validation.DataAnnotations.Extensions.svg?style=flat)](https://www.nuget.org/packages/Nancy.Validation.DataAnnotations.Extensions/)
 [![MyGet Status](https://img.shields.io/myget/13degrees/vpre/Nancy.Validation.DataAnnotations.Extensions.svg?style=flat&label=myget)](http://www.myget.org/f/13degrees)
 
 This project adds support to `Nancy.Validation.DataAnnotations` for the following .NET 4.5 attributes.
