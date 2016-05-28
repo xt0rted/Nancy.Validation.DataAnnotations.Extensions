@@ -1,7 +1,7 @@
 ﻿using System.Reflection;
 
 [assembly: AssemblyCompany("Brian Surowiec")]
-[assembly: AssemblyProduct("Nancy.Validation.DataAnnotations.Extensions.Tests")]
+[assembly: AssemblyProduct("Nancy.Validation.DataAnnotations.Extensions")]
 [assembly: AssemblyCopyright("Copyright © 2015")]
 
 [assembly: AssemblyInformationalVersion("0.4.0")]
