@@ -31,4 +31,4 @@ By default Nancy will load and register all `IDataAnnotationsValidatorAdapter` i
 
 ## Copyright and license
 
-Copyright (c) 2015 Brian Surowiec under [the MIT License](LICENSE).
+Copyright (c) 2017 Brian Surowiec under [the MIT License](LICENSE).
