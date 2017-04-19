@@ -69,6 +69,7 @@
     <Compile Include="Tests\CompareValidatorAdapterFixture.cs" />
     <Compile Include="Tests\CreditCardValidatorAdapterFixture.cs" />
     <Compile Include="Tests\EmailAddressValidatorAdapterFixture.cs" />
+    <Compile Include="Tests\EnumDataTypeValidatorAdapterFixture.cs" />
     <Compile Include="Tests\FileExtensionsValidatorAdapterFixture.cs" />
     <Compile Include="Tests\MaxLengthValidatorAdapterFixture.cs" />
     <Compile Include="Tests\MinLengthValidatorAdapterFixture.cs" />

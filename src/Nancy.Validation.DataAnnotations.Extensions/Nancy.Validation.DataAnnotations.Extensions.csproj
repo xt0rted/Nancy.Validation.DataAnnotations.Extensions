@@ -51,6 +51,7 @@
     <Compile Include="CompareValidatorAdapter.cs" />
     <Compile Include="CreditCardValidatorAdapter.cs" />
     <Compile Include="EmailAddressValidatorAdapter.cs" />
+    <Compile Include="EnumDataTypeValidatorAdapter.cs" />
     <Compile Include="FileExtensionsValidatorAdapter.cs" />
     <Compile Include="MaxLengthValidatorAdapter.cs" />
     <Compile Include="MinLengthValidatorAdapter.cs" />

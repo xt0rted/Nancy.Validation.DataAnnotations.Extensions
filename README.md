@@ -9,6 +9,7 @@ This project adds support to `Nancy.Validation.DataAnnotations` for the followin
 - [CompareAttribute](http://msdn.microsoft.com/en-us/library/System.ComponentModel.DataAnnotations.CompareAttribute.aspx)
 - [CreditCardAttribute](http://msdn.microsoft.com/en-us/library/System.ComponentModel.DataAnnotations.CreditCardAttribute.aspx)
 - [EmailAddressAttribute](http://msdn.microsoft.com/en-us/library/System.ComponentModel.DataAnnotations.EmailAddressAttribute.aspx)
+- [EnumDataTypeAttribute](http://msdn.microsoft.com/en-us/library/System.ComponentModel.DataAnnotations.EnumDataTypeAttribute.aspx)
 - [FileExtensionsAttribute](http://msdn.microsoft.com/en-us/library/System.ComponentModel.DataAnnotations.FileExtensionsAttribute.aspx)
 - [MaxLengthAttribute](http://msdn.microsoft.com/en-us/library/System.ComponentModel.DataAnnotations.MaxLengthAttribute.aspx)
 - [MinLengthAttribute](http://msdn.microsoft.com/en-us/library/System.ComponentModel.DataAnnotations.MinLengthAttribute.aspx)
