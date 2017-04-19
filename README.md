@@ -23,13 +23,6 @@ Install via NuGet `Install-Package Nancy.Validation.DataAnnotations.Extensions`
 By default Nancy will load and register all `IDataAnnotationsValidatorAdapter` instances. Unless you've changed how these get loaded there's nothing to configure.
 
 
-## Development
-
-This repository contains `.git*` and `.hg*` files. This allows for the use of either Git or [Hg](http://mercurial.selenic.com/) using Fog Creek's [Kiln Harmony](http://www.fogcreek.com/kiln/).
-
-To use Hg you will need to clone or fork this repository and then import it into your instance of Kiln as a Git repository. From there you will be able to work in Hg exclusively aside from when pushing changes up to GitHub. You will also need to enable the [EOL extension](http://mercurial.selenic.com/wiki/EolExtension) for this repository if you do not have it setup globally.
-
-
 ## Release
 
 1. Tag the most recent commit
