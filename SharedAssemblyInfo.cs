@@ -2,7 +2,7 @@
 
 [assembly: AssemblyCompany("Brian Surowiec")]
 [assembly: AssemblyProduct("Nancy.Validation.DataAnnotations.Extensions")]
-[assembly: AssemblyCopyright("Copyright © 2015")]
+[assembly: AssemblyCopyright("Copyright © 2017")]
 
 [assembly: AssemblyInformationalVersion("0.4.0")]
 
